@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>lista de crud</h1>
+      <h1>Lista de CRUD</h1>
       <Form onSubmit={handleAddOrEdit} editItem={editItem} />
       <List items={items} onEdit={handleEditSelect} onDelete={handleDelete} />
     </div>
