@@ -1,7 +1,7 @@
 import React from 'react';
 import Item from './Item.jsx';
 
-function List({ items, onEdit, onDelete }) {
+function List({ items, onEdit, onDelete, onToggleComplete }) {
   return (
     <ul className="todo-list">
       {items.map((item) => (
@@ -10,6 +10,7 @@ function List({ items, onEdit, onDelete }) {
           item={item}
           onEdit={onEdit}
           onDelete={onDelete}
+          onToggleComplete={onToggleComplete}
         />
       ))}
     </ul>
