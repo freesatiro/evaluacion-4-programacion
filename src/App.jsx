@@ -1,3 +1,4 @@
+//app principal
 import React, { useState, useEffect } from 'react';
 import Form from './Form.jsx';
 import List from './List.jsx';
@@ -18,7 +19,7 @@ function App() {
 
   const handleAddOrEdit = (text) => {
     if (!text || !text.trim()) {
-      alert("¡Precaución! No puedes agregar o editar un elemento vacío.");
+      alert("Error! No puede agregar o editar un elemento vacío.");
       return;
     }
 

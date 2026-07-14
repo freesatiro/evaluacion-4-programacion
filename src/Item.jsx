@@ -1,3 +1,4 @@
+//botones funcionales
 import React from 'react';
 
 function Item({ item, onEdit, onDelete, onToggleComplete }) {
