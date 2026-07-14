@@ -1,160 +1,151 @@
-/*visual de la aplicacion */
-body {
-  margin: 0;
-  background-color: #f4f6f9;
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* Contenedor principal centrado y con ancho máximo controlado */
 .app-container {
   max-width: 500px;
   margin: 50px auto;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
+/* Título principal de la aplicación */
 h1 {
   text-align: center;
-  color: #333333;
-  margin-top: 0;
+  color: #333;
   margin-bottom: 20px;
 }
 
-.todo-form, .search-container {
+/* Formulario que agrupa el input de escritura y el botón de acción */
+.todo-form {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
 }
 
+/* Entrada de texto general (usada en formulario y en el buscador) */
 .todo-input {
   flex: 1;
   padding: 10px;
-  border: 2px solid #dddddd;
-  border-radius: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   font-size: 16px;
-  outline: none;
-  background-color: #ffffff;
-  color: #333333;
-  transition: border-color 0.3s;
 }
 
-.todo-input:focus {
-  border-color: #4a90e2;
+/* Estilo específico para la barra de búsqueda (Commit 3) */
+.search-container {
+  margin-bottom: 15px;
 }
 
 .search-input {
-  background-color: #f9f9f9;
+  width: 100%;
+  border-color: #007bff; /* Color azul para destacar la barra de búsqueda */
+  box-sizing: border-box; /* Evita que el padding rompa el ancho del contenedor */
 }
 
+/* Botón principal de agregar o actualizar */
 .todo-button {
-  padding: 10px 20px;
-  background-color: #4a90e2;
-  color: #ffffff;
+  padding: 10px 15px;
+  background-color: #28a745; /* Verde estándar para acciones positivas */
+  color: #fff;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-weight: bold;
 }
 
 .todo-button:hover {
-  background-color: #357abd;
+  background-color: #218838; /* Efecto hover para feedback visual */
 }
 
+/* Barra intermedia que organiza el contador y el botón de borrado masivo */
 .info-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-  padding: 0 5px;
+  font-size: 14px;
+  color: #666;
 }
 
-.total-contador {
-  font-weight: bold;
-  color: #666666;
-}
-
+/* Botón para vaciar la lista completa (Commit 3) */
 .btn-clear-all {
-  background-color: #7f8c8d;
-  color: #ffffff;
+  padding: 5px 10px;
+  background-color: #dc3545; /* Rojo para alertar peligro de borrado */
+  color: white;
   border: none;
-  padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.2s;
+  font-size: 12px;
 }
 
 .btn-clear-all:hover {
-  background-color: #95a5a6;
+  background-color: #c82333;
 }
 
+/* Quita las viñetas por defecto del elemento de lista nativo */
 .todo-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Cada fila o elemento individual dentro de la lista */
 .todo-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
-  border-bottom: 1px solid #eeeeee;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 
-.todo-item:hover {
-  background-color: #f9f9f9;
-}
-
+/* Texto del elemento que permite interactuar mediante clic (Commit 3) */
 .todo-text {
-  font-size: 16px;
-  color: #444444;
-  cursor: pointer;
-  user-select: none;
   flex: 1;
-  margin-right: 10px;
-  transition: color 0.2s, text-decoration 0.2s;
+  cursor: pointer;
+  word-break: break-all; /* Evita que textos largos rompan la caja del diseño */
+  transition: all 0.2s ease;
 }
 
+/* Clase dinámica aplicada cuando el estado 'completed' es verdadero (Commit 3) */
 .todo-text.completed {
-  text-decoration: line-through;
-  color: #bfaaaa;
+  text-decoration: line-through; /* Genera la línea de tachado */
+  color: #aaa; /* Opaca el texto para dar sensación de finalizado */
 }
 
+/* Contenedor de botones a la derecha del elemento */
 .actions {
   display: flex;
-  gap: 8px;
+  gap: 5px;
 }
 
+/* Botón para abrir el elemento en edición */
 .btn-edit {
-  background-color: #2ecc71;
-  color: #ffffff;
+  padding: 5px 8px;
+  background-color: #ffc107; /* Amarillo para edición */
+  color: #000;
   border: none;
-  padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .btn-edit:hover {
-  background-color: #27ae60;
+  background-color: #e0a800;
 }
 
+/* Botón para eliminar un elemento individual (Commit 2) */
 .btn-delete {
-  background-color: #e74c3c;
-  color: #ffffff;
+  padding: 5px 8px;
+  background-color: #dc3545; /* Rojo para eliminación */
+  color: white;
   border: none;
-  padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .btn-delete:hover {
-  background-color: #c0392b;
+  background-color: #bd2130;
 }

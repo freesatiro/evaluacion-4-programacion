@@ -4,6 +4,7 @@ import React from 'react';
 function Item({ item, onEdit, onDelete, onToggleComplete }) {
   return (
     <li className="todo-item">
+      {/* cambia el estado de completado (true/false) de un elemento al hacer click en el texto */}
       <span 
         className={`todo-text ${item.completed ? 'completed' : ''}`}
         onClick={() => onToggleComplete(item.id)}
